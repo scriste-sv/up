@@ -155,7 +155,9 @@ debug('`\033[97mkill -s SIGUSR2 %d\033[90m` or \033[97mctrl + r\033[90m'
 var httpServer = http.Server().listen(program.port)
   , srv = up(httpServer, file, {
         numWorkers: numWorkers
+      , assumeReady: false
       , workerTimeout: workerTimeout
+      , workerPingInterval: 1000
       , requires: requires
       , title: program.title
       , keepAlive: keepAlive
